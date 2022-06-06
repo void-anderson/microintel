@@ -9,12 +9,15 @@ echo "Install taskel ..."
 sudo apt install --assume-yes wget tasksel
 
 # # Download chrome remote desktop installer
-echo "Downloading Chrome Remote Desktop..."
+echo "Downloading Chrome Remote Desktop ..."
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 
 # # Install the downloaded the package 
-echo "Installing Chrome Remote Desktop..."
-install --assume-yes ./chrome-remote-desktop_current_amd64.deb
+echo "Installing Chrome Remote Desktop ..."
+sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
+
+echo "Cleaning Up ..."
+rm ./chrome-remote-desktop_current_amd64.deb
 
 # # Install xfce4 and etc
 
@@ -30,4 +33,4 @@ sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome
 echo "Disabling LightDM ..."
 sudo systemctl disable lightdm.service
 
-echo "Done."
+echo "Done. Please setup remote access ..."
